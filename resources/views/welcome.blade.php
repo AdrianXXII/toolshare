@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Dempro</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,7 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Hier entsteht Toolshare 1.0</div>
+                <div class="content">Dominique Stampfli, Adrian Locher, Reto Aeschbacher</div>
             </div>
         </div>
     </body>
