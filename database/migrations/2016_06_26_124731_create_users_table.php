@@ -21,8 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('zip');
             $table->string('city');
             $table->string('country');
-
-            $table->primary('id');
         });
     }
 
