@@ -19,8 +19,8 @@ class CreateRequestsTable extends Migration
             $table->integer('quantity');
             $table->date(date);
             $table->timestamp();
-            $table->foreign('user_id')->references('id')->on('user');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

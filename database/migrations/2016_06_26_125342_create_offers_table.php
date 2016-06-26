@@ -19,8 +19,8 @@ class CreateOffersTable extends Migration
             $table->decimal('price');
             $table->timestamp();
 
-            $table->foreign('request_id')->references('id')->on('request');
-            $table->foreign('supplier_id')->references('id')->on('user');
+            $table->foreign('request_id')->references('id')->on('requests');
+            $table->foreign('supplier_id')->references('id')->on('users');
         });
     }
 

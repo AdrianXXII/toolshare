@@ -16,7 +16,7 @@ class CreateAttributeValsTable extends Migration
             $table->increments('id');
             $table->string('value');
             $table->integer('attribute_def_id');
-            $table->foreign('attribute_def_id')->references('id')->on('attribute_def');
+            $table->foreign('attribute_def_id')->references('id')->on('attribute_defs');
         });
     }
 
