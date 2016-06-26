@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3031c501-f349-4280-9b69-ff824e740edf" name="Toolshare" url="http://toolshare.dimaro.ch">
+        <fileTransfer host="toolshare.dimaro.ch" port="22" accessType="SFTP" username="adrian">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
