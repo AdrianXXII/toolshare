@@ -15,7 +15,8 @@ class CreateAttributeValsTable extends Migration
         Schema::create('attribute_vals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('value');
-            $table->integer('attribute_def_id');
+            $table->integer('attribute_def_id',false,true)->length(10);
+
             $table->foreign('attribute_def_id')->references('id')->on('attribute_defs');
         });
     }

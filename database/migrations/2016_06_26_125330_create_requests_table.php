@@ -14,11 +14,12 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('user_id',false,true)->length(10);
+            $table->integer('category_id',false,true)->length(10);
             $table->integer('quantity');
-            $table->date(date);
-            $table->timestamp();
+            $table->date('date');
+            $table->timestamp('timestamp');
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
         });

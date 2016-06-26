@@ -14,10 +14,10 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('request_id');
-            $table->integer('supplier_id');
+            $table->integer('request_id',false,true)->length(10);
+            $table->integer('supplier_id',false,true)->length(10);
             $table->decimal('price');
-            $table->timestamp();
+            $table->timestamp('timestamp');
 
             $table->foreign('request_id')->references('id')->on('requests');
             $table->foreign('supplier_id')->references('id')->on('users');

@@ -13,12 +13,12 @@ class CreateRequestAttributeTable extends Migration
     public function up()
     {
         Schema::create('request_attribute', function (Blueprint $table) {
-            $table->integer('request_id');
-            $table->integer('attribute_id');
+            $table->integer('request_id',false,true)->length(10);
+            $table->integer('attribute_id',false,true)->length(10);
 
             $table->primary(['request_id', 'attribute_id']);
-            $table->foreign('request_id')->references(id)->on('requests');
-            $table->foreign('attribute_id')->references(id)->on('attribute_vals');
+            $table->foreign('request_id')->references('id')->on('requests');
+            $table->foreign('attribute_id')->references('id')->on('attribute_vals');
         });
     }
 
