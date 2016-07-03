@@ -5,7 +5,7 @@
  * Time: 17:04
  */--}}
 
-@extends('layouts.master')
+@extends('layout.master')
 
 @section('content')
 <form method="POST" action="/auth/login">
