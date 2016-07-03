@@ -19,10 +19,6 @@ Route::get('/template', function () {
     return view('template');
 });
 
-Route::get('/login', function () {
-    return view('auth/login');
-});
-
 // Authentifizierung
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
