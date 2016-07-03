@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Toolshare">
+  <component name="PublishConfigData" serverName="Toolshare" uploadOnCheckin="3031c501-f349-4280-9b69-ff824e740edf">
     <serverData>
       <paths name="Toolshare">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="Toolshare" />
   </component>
 </project>
