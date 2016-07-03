@@ -18,3 +18,16 @@ Route::get('/', function () {
 Route::get('/template', function () {
     return view('template');
 });
+
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
+// Authentifizierung
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registierung
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
