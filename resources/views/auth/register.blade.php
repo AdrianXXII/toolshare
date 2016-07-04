@@ -80,6 +80,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+                            <label for="zip" class="col-md-4 control-label">Zip</label>
+
+                            <div class="col-md-6">
+                                <input id="zip" type="text" class="form-control" name="zip" value="{{ old('zip') }}">
+
+                                @if ($errors->has('zip'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('zip') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
