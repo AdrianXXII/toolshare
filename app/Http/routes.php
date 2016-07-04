@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/template', function () {
     return view('template');
 });
@@ -27,3 +23,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registierung
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
