@@ -10,7 +10,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
-                        {{--<div class="form-group{{ $errors->has('Company') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('Company') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Company</label>
 
                             <div class="col-md-6">
@@ -120,7 +120,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>--}}
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
