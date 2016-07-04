@@ -71,10 +71,10 @@ class AuthController extends Controller
             'company' => $data['company'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            /*'street' => $data['street'],
+            'street' => $data['street'],
             'zip' => $data['zip'],
             'city' => $data['city'],
-            'country' => $data['country'],*/
+            'country' => $data['country'],
         ]);
     }
 }
