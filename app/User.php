@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Eloquent implements Authenticatable
 {
     //
     public $timestamps = false;
