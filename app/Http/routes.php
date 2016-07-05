@@ -15,12 +15,11 @@ Route::get('/template', function () {
     return view('template');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
     Route::get('/home', 'HomeController@index');
 });
