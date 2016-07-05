@@ -15,25 +15,12 @@ Route::get('/template', function () {
     return view('template');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-/*Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/', function () {
         return view('welcome');
     });
 
     Route::get('/home', 'HomeController@index');
-});*/
-
-// Authentication routes...
-Route::get('/login', 'Auth\AuthController@getLogin');
-Route::post('/login', 'Auth\AuthController@postLogin');
-Route::get('/logout', 'Auth\AuthController@getLogout');
-
-// Registration routes...
-Route::get('/register', 'Auth\AuthController@getRegister');
-Route::post('/register', 'Auth\AuthController@postRegister');
+});
 
