@@ -94,6 +94,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 control-label">City</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}">
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
+                            <label for="country" class="col-md-4 control-label">Country</label>
+
+                            <div class="col-md-6">
+                                <input id="country" type="text" class="form-control" name="country" value="{{ old('country') }}">
+
+                                @if ($errors->has('country'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
