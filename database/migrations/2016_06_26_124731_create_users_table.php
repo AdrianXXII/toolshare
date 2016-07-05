@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('zip');
             $table->string('city');
             $table->string('country');
+            $table->string('remember_token', 100) -> nullable();
         });
     }
 
