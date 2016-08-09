@@ -20,11 +20,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index');
-
-    Route::get('/notify',function(){
-        session()->flash('msg','Hey, You have a message to read');
-        return redirect()->to('/');
-    });
+    
 });
 
 
