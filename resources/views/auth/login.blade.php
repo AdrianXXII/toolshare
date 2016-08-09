@@ -38,15 +38,6 @@
                             </div>
                         </div>
 
-                        @if (count($errors))
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    // Remove the spaces between the brackets
-                                    <li>{ { $error } }</li>
-                                @endforeach
-                            </ul>
-                        @endif
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
