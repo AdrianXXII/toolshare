@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail Addresse</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Passwort</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Passwort bestätigen</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
-                            <label for="company" class="col-md-4 control-label">Company</label>
+                            <label for="company" class="col-md-4 control-label">Firma</label>
 
                             <div class="col-md-6">
                                 <input id="company" type="text" class="form-control" name="company" value="{{ old('company') }}">
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
-                            <label for="street" class="col-md-4 control-label">Street</label>
+                            <label for="street" class="col-md-4 control-label">Strasse</label>
 
                             <div class="col-md-6">
                                 <input id="street" type="text" class="form-control" name="street" value="{{ old('street') }}">
@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
-                            <label for="zip" class="col-md-4 control-label">Zip</label>
+                            <label for="zip" class="col-md-4 control-label">Postleitzahl</label>
 
                             <div class="col-md-6">
                                 <input id="zip" type="text" class="form-control" name="zip" value="{{ old('zip') }}">
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-                            <label for="city" class="col-md-4 control-label">City</label>
+                            <label for="city" class="col-md-4 control-label">Stadt</label>
 
                             <div class="col-md-6">
                                 <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}">
@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-                            <label for="country" class="col-md-4 control-label">Country</label>
+                            <label for="country" class="col-md-4 control-label">Land</label>
 
                             <div class="col-md-6">
                                 <input id="country" type="text" class="form-control" name="country" value="{{ old('country') }}">
@@ -125,7 +125,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
+                                    <i class="fa fa-btn fa-user"></i> Registrieren
                                 </button>
                             </div>
                         </div>
