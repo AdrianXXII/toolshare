@@ -15,10 +15,24 @@ Route::get('/template', function () {
     return view('template');
 });
 
+/*
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index');
+});
+*/
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/notify',function(){
+        session()->flash('msg','Hey, You have a message to read');
+        return redirect()->to('/');
+    });
 });
 
