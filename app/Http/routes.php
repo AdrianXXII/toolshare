@@ -20,7 +20,10 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index');
+    Route::get('/request/create', 'RequestController@create');
+    Route::post('/request', 'RequestController@store');
+    Route::get('/search', 'RequestController@search');
+    Route::get('/find', 'RequestController@find');
 
 });
-
 

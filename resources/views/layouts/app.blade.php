@@ -48,6 +48,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::guest() == false)
+                        <li><a href="{{ url('/request/create') }}">Nachfrage erstellen</a></li>
+                        <li><a href="{{ url('/search') }}">Suche</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -71,7 +75,6 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
 
     <!-- JavaScripts -->

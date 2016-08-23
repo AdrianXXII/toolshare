@@ -15,6 +15,7 @@ class CreateAttributeDefsTable extends Migration
         Schema::create('attribute_defs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('definition');
+            $table->string('unit');
         });
     }
 
