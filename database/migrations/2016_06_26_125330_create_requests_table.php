@@ -19,8 +19,10 @@ class CreateRequestsTable extends Migration
             $table->integer('quantity');
             $table->date('date');
             $table->timestamp('timestamp');
+            $table->integer('selected_offer',false,true)->length(10);
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('selected_offer')->references('id')->on('offers');
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }

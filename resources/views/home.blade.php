@@ -15,13 +15,31 @@
                     <div class="panel-body">
                         <h2>Ihre Nachfragen:</h2>
                         @foreach($requests as $request)
-                            <strong>{{ $request->category->description }}</strong> - Anzahl: {{ $request->quantity }}, Lieferdatum: {{ $request->date }} <br/>
-                            @foreach($request->requestAttributes as $atr)
-                                {{ $atr->value . " " . $atr->definition->unit }}
-                                @if ($request->requestAttributes->last() != $atr)
-                                    ,
-                                @endif
-                            @endforeach
+                            <table class="requests">
+                                <thead>
+                                    <tr>
+                                        <th><strong>{{ $request->category->description }}</strong> - Anzahl: {{ $request->quantity }}, Lieferdatum: {{ $request->date }}</th>
+                                        <th rowspan="2">
+                                            @if ( count($request->offers) > 0)
+                                                <a class="btn btn-primary" href="{{ route('showRequest',['id' => $request->id]) }}">Angebotte auflisten</a>
+                                            @endif
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            @foreach($request->requestAttributes as $atr)
+                                                {{ $atr->value . " " . $atr->definition->unit }}
+                                                @if ($request->requestAttributes->last() != $atr)
+                                                    ,
+                                                @endif
+                                            @endforeach
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                             <hr/>
                         @endforeach
                     </div>

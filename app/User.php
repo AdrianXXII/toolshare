@@ -22,12 +22,12 @@ class User extends Authenticatable
     }
 
     /**
-     * A User can have many Offers.
-     * This funktion will return a Array of Offers.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * A user can have many requests.
+     * Return Request of user.
      */
-    public function offer(){
-        return $this->hasMany('App\Offer');
+    public function offers(){
+        return $this->hasMany('App\Request', 'supplier_id');
     }
+
+
 }

@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $requests = Auth::user()->requests;
+        $requests = Auth::user()->requests()->where('date','>=',date("Y-m-d"))->where('selected_offer',null)->get();
         return view('home', compact('requests'));
     }
 }

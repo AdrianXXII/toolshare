@@ -5,17 +5,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Resultate</div>
+                <div class="panel-heading">Nachfrage erstellen</div>
                 <div class="panel-body">
-                    @foreach($requests as $request)
-                        <table class="table table-striped">
-                            <thead>
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <th>Kategory</th>
-                                <th>{{ $request->category->description }}</th>
+                                <td>Kategory</td>
+                                <td>{{ $request->category->description }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td>Anzahl</td>
                                 <td>{{ $request->quantity }}</td>
@@ -34,14 +33,18 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            </tbody>
-                            <tfoot>
+                        </tbody>
+                    </table>
+                    <hr>
+                    @foreach($request->offers as $offer)
+                        <table class="table table-striped">
+                            <tbody>
                                 <tr>
-                                    <td colspan="2"><a class="btn btn-primary" href="{{ route('createOffer',['id' => $request->id]) }}">Angebot machen</a></td>
+                                    <td>CHF {{ number_format($offer->price, 2) }}</td>
+                                    <td><a href="{{ route('selectRequest',['rid' => $request->id, 'cid' => $offer->id ]) }}" class="btn btn-primary">Annehmen</a></td>
                                 </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
-                        <hr/>
                     @endforeach
                 </div>
             </div>
