@@ -15,29 +15,46 @@
                     <div class="panel-body">
                         <h2>Ihre Nachfragen:</h2>
                         @foreach($requests as $request)
-                            <table class="requests">
+                            <table class="table table-striped">
                                 <thead>
-                                    <tr>
-                                        <th><strong>{{ $request->category->description }}</strong> - Anzahl: {{ $request->quantity }}, Lieferdatum: {{ $request->date }}</th>
-                                        <th rowspan="2">
-                                            @if ( count($request->offers) > 0)
-                                                <a class="btn btn-primary" href="{{ route('showRequest',['id' => $request->id]) }}">Angebotte auflisten</a>
-                                            @endif
-                                        </th>
-                                    </tr>
+                                <tr>
+                                    <th>Nachfrage Nr.</th>
+                                    <th>{{ $request->id }}</th>
+                                </tr>
                                 </thead>
                                 <tbody>
+                                <tr>
+                                    <td>Kategory</td>
+                                    <td>{{ $request->category->description }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Anzahl</td>
+                                    <td>{{ $request->quantity }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Lieferdatum</td>
+                                    <td>{{ $request->date }}</td>
+                                </tr>
+                                @foreach($request->requestAttributes as $atr)
                                     <tr>
-                                        <td colspan="2">
-                                            @foreach($request->requestAttributes as $atr)
-                                                {{ $atr->value . " " . $atr->definition->unit }}
-                                                @if ($request->requestAttributes->last() != $atr)
-                                                    ,
-                                                @endif
-                                            @endforeach
+                                        <td>
+                                            {{ $atr->definition->definition  }}
+                                        </td>
+                                        <td>
+                                            {{ $atr->value . " " . $atr->definition->unit }}
                                         </td>
                                     </tr>
+                                @endforeach
                                 </tbody>
+                                    @if ( count($request->offers) > 0)
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <a class="btn btn-primary center-block" href="{{ route('showRequest',['id' => $request->id]) }}">Angebote auflisten</a>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    @endif
                             </table>
 
                             <hr/>

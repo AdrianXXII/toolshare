@@ -26,7 +26,7 @@ class User extends Authenticatable
      * Return Request of user.
      */
     public function offers(){
-        return $this->hasMany('App\Request', 'supplier_id');
+        return $this->hasMany('App\Offer', 'supplier_id');
     }
 
 

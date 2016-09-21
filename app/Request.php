@@ -61,6 +61,10 @@ class Request extends Model
         return $this->belongsTo('App\Offer', 'selected_offer');
     }
 
+    /**
+     * Gives back the path to the XML file
+     * @return string
+     */
     public function getXmlPath(){
         return "/xml/$this->id/order.xml";
     }
@@ -73,7 +77,7 @@ class Request extends Model
     public function makeXml(){
         $path = $this->getXmlPath();
         $xml = $xml_data = new \SimpleXMLElement('<?xml version="1.0"?><data></data>');
-        $array = array('recipient' => array(), 'supplier' => array(), 'itme' => array());
+        $array = array('recipient' => array(), 'supplier' => array(), 'order' => array());
         $array['recipient']['email'] = $this->user->email;
         $array['recipient']['company'] = $this->user->company;
         $array['recipient']['street'] = $this->user->street;
@@ -89,7 +93,7 @@ class Request extends Model
         $array['supplier']['country'] = $this->offer->user->country;
 
         $array['order']['category'] = $this->category->description;
-        $array['order']['quantity'] = $this->quanitiy;
+        $array['order']['quantity'] = $this->quantity;
         $array['order']['duedate'] = $this->date;
         $array['order']['price'] = $this->offer->price;
 

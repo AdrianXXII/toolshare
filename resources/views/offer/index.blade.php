@@ -5,25 +5,31 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Nachfrage erstellen</div>
+                <div class="panel-heading">Meine noch offene Angebote</div>
                 <div class="panel-body">
+
+                    @foreach($offers as $offer)
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <td>Kategory</td>
-                                <td>{{ $request->category->description }}</td>
+                                <th>Nachfrage Nr.</th>
+                                <th>{{ $offer->request->id }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td>Kategory</td>
+                                <td>{{ $offer->request->category->description }}</td>
+                            </tr>
+                            <tr>
                                 <td>Anzahl</td>
-                                <td>{{ $request->quantity }}</td>
+                                <td>{{ $offer->request->quantity }}</td>
                             </tr>
                             <tr>
                                 <td>Lieferdatum</td>
-                                <td>{{ $request->date }}</td>
+                                <td>{{ $offer->request->date }}</td>
                             </tr>
-                            @foreach($request->requestAttributes as $atr)
+                            @foreach($offer->request->requestAttributes as $atr)
                                 <tr>
                                     <td>
                                         {{ $atr->definition->definition  }}
@@ -33,24 +39,16 @@
                                     </td>
                                 </tr>
                             @endforeach
+                        <tr>
+                            <td><strong>Angegot Nr.</strong></td>
+                            <td><strong>{{ $offer->id }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dein Angegot</strong></td>
+                            <td><strong>CHF {{ $offer->price }}</strong></td>
+                        </tr>
                         </tbody>
                     </table>
-                    <hr>
-                    @foreach($request->offers as $offer)
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Angegot Nr.</th>
-                                    <td>{{ $offer->id }}</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>CHF {{ number_format($offer->price, 2) }}</td>
-                                    <td><a href="{{ route('selectRequest',['rid' => $request->id, 'cid' => $offer->id ]) }}" class="btn btn-primary">Annehmen</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
                     @endforeach
                 </div>
             </div>

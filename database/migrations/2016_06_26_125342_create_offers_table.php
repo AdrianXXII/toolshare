@@ -22,6 +22,10 @@ class CreateOffersTable extends Migration
             $table->foreign('request_id')->references('id')->on('requests');
             $table->foreign('supplier_id')->references('id')->on('users');
         });
+
+        Schema::table('requests', function(Blueprint $table) {
+            $table->foreign('selected_offer')->references('id')->on('offers');
+        });
     }
 
     /**

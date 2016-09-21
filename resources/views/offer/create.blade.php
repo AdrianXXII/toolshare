@@ -10,11 +10,15 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <td>Kategory</td>
-                                <td>{{ $request->category->description }}</td>
+                                <th>Nachfrage Nr.</th>
+                                <th>{{ $request->id }}</th>
                             </tr>
                         </thead>
                         <tbody>
+                        <tr>
+                            <td>Kategory</td>
+                            <td>{{ $request->category->description }}</td>
+                        </tr>
                             <tr>
                                 <td>Anzahl</td>
                                 <td>{{ $request->quantity }}</td>
@@ -40,7 +44,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
-                            <label for="price" class="col-md-4 control-label">Angebot Preis</label>
+                            <label for="price" class="col-md-4 control-label">Angebot in CHF</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="text" class="form-control" name="price" value="{{ old('price') }}">

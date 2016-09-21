@@ -14,7 +14,7 @@
                             <label for="category_id" class="col-md-4 control-label">Kategorie</label>
 
                             <div class="col-md-6">
-                                <select id="category_id"class="form-control" name="category_id">
+                                <select id="category_id" class="form-control" name="category_id">
                                     @foreach ($categories as $category)
                                         @if ($category->id == old('category_id'))
                                             <option value="{{ $category->id }}" selected>{{ $category->description }}</option>
@@ -35,10 +35,11 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('attribute1') ? ' has-error' : '' }}">
-                            <label for="attribute1" class="col-md-4 control-label">Attribut 1</label>
+                            <label for="attribute1" class="col-md-4 control-label">Eigenschaft 1</label>
 
                             <div class="col-md-6">
-                                <select id="attribute1"class="form-control" name="attribute1">
+                                <select id="attribute1" class="form-control" name="attribute1">
+                                    <option value="">&nbsp;</option>
                                     @foreach ($attributes as $attribute)
                                         @if ($attribute->id == old('attribute1'))
                                             <option value="{{ $attribute->id }}" selected >{{ $attribute->definition->definition }} -  {{ $attribute->value }} {{ $attribute->definition->unit }}</option>
@@ -57,11 +58,11 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('attribute2') ? ' has-error' : '' }}">
-                            <label for="attribute2" class="col-md-4 control-label">Attribut 2</label>
+                            <label for="attribute2" class="col-md-4 control-label">Eigenschaft 2</label>
 
                             <div class="col-md-6">
-                                <select id="attribute2"class="form-control" name="attribute2">
-                                    <option value=""></option>
+                                <select id="attribute2" class="form-control" name="attribute2">
+                                    <option value="">&nbsp;</option>
                                     @foreach ($attributes as $attribute)
                                         @if ($attribute->id == old('attribute2'))
                                             <option value="{{ $attribute->id }}" selected >{{ $attribute->definition->definition }} -  {{ $attribute->value }} {{ $attribute->definition->unit }}</option>
@@ -80,11 +81,11 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('attribute3') ? ' has-error' : '' }}">
-                            <label for="attribute3" class="col-md-4 control-label">Attribut 3</label>
+                            <label for="attribute3" class="col-md-4 control-label">Eigenschaft 3</label>
 
                             <div class="col-md-6">
-                                <select id="attribute3"class="form-control" name="attribute3">
-                                    <option value=""></option>
+                                <select id="attribute3" class="form-control" name="attribute3">
+                                    <option value="">&nbsp;</option>
                                     @foreach ($attributes as $attribute)
                                         @if ($attribute->id == old('attribute3'))
                                             <option value="{{ $attribute->id }}" selected>{{ $attribute->definition->definition }} -  {{ $attribute->value }} {{ $attribute->definition->unit }}</option>

@@ -16,19 +16,12 @@ use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
+    /**
+     * RequestController constructor. Makes sure the user is logged in.
+     */
     public function __construct()
     {
         $this->middleware('auth');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
     }
 
     /**
@@ -38,7 +31,6 @@ class RequestController extends Controller
      */
     public function create()
     {
-        //
         $categories = Category::all();
         $attributes = AttributeVal::all();
         return view('request.create', compact('categories','attributes'));
@@ -78,29 +70,6 @@ class RequestController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-
-    /**
      * Form to seach for Requests.
      *
      * @return \Illuminate\Http\Response
@@ -119,14 +88,23 @@ class RequestController extends Controller
      */
     public function find(Request $input)
     {
-        $attributes = [$input['attribute1']];
+        $attributes = [];
+        $requests = null;
+        if ($input['attribute1']) $attributes[] = $input['attribute1'];
         if ($input['attribute2']) $attributes[] = $input['attribute2'];
         if ($input['attribute3']) $attributes[] = $input['attribute3'];
-        $requests = \App\Request::where('category_id', $input['category_id'])->where('selected_offer',null)
-            ->where('date','>=',date("Y-m-d"))->whereHas('requestAttributes', function($q) use ($attributes)
-        {
-            $q->whereIn('id', $attributes);
-        }, '=', count($attributes))->get();
+        if (count($attributes) > 0) {
+            $requests = \App\Request::where('category_id', $input['category_id'])->where('selected_offer',null)
+                ->where('user_id', '!=', Auth::User()->id)->where('date','>=',date("Y-m-d"))
+                ->whereHas('requestAttributes', function($q) use ($attributes)
+                {
+                    $q->whereIn('id', $attributes);
+                }, '=', count($attributes))->get();
+        } else {
+            $requests = \App\Request::where('category_id', $input['category_id'])->where('selected_offer',null)
+                ->where('user_id', '!=', Auth::User()->id)->where('date','>=',date("Y-m-d"))->get();
+        }
+
 
         return view('request.find', compact('requests'));
     }
@@ -165,9 +143,14 @@ class RequestController extends Controller
             });
         }
 
-        return response(Storage::get($xml))->header('Content-Type','text/xml');
+        return redirect('/');
     }
 
+    /**
+     * This function mainly serves as a means to easily test the xml generation and sending of mails.
+     * @param $id
+     * @return mixed
+     */
     public function xml($id)
     {
         $request = \App\Request::find($id);

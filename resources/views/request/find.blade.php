@@ -11,11 +11,15 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Kategory</th>
-                                <th>{{ $request->category->description }}</th>
+                                <th>Nachfrage Nr.</th>
+                                <th>{{ $request->id }}</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <tr>
+                                <td>Kategory</td>
+                                <td>{{ $request->category->description }}</td>
+                            </tr>
                             <tr>
                                 <td>Anzahl</td>
                                 <td>{{ $request->quantity }}</td>
@@ -37,7 +41,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="2"><a class="btn btn-primary" href="{{ route('createOffer',['id' => $request->id]) }}">Angebot machen</a></td>
+                                    <td colspan="2"><a class="btn btn-primary center-block" href="{{ route('createOffer',['id' => $request->id]) }}">Angebot machen</a></td>
                                 </tr>
                             </tfoot>
                         </table>

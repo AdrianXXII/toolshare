@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Toolshare</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Toolshare
                 </a>
             </div>
 
@@ -50,6 +50,7 @@
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     @if (Auth::guest() == false)
                         <li><a href="{{ url('/request/create') }}">Nachfrage erstellen</a></li>
+                        <li><a href="{{ url('/offer') }}">Meine Angebote</a></li>
                         <li><a href="{{ url('/search') }}">Suche</a></li>
                     @endif
                 </ul>
@@ -63,7 +64,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->company }} <span class="caret"></span>
+                                {{ Auth::user()->email }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">

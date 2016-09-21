@@ -1,8 +1,17 @@
 <body>
-    Begrüssung {{ $request->user->company }}
+    <p>Guten Tag {{ $request->user->company }}</p>
 
-    Gratulation Sie haben erfolgreich das Angebot angenommen.
+    <p>
+        Sie haben soeben das Angebot Nr. {{ $request->offer->id }} erfolgreich angenommen.<br/>
+        Der Anbieter erhält von uns eine E-Mail mit Ihrer Bestellung.
+    </p>
 
-    Freundliche Grüsse
-    Toolshare
+    <p>
+        Besten Dank.
+    </p>
+
+    <p>
+        Freundliche Grüsse<br/>
+        Toolshare
+    </p>
 </body>
